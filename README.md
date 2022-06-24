@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Frontend Mentor - Tip calculator app solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Calculate the correct tip and total cost of the bill per person
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+![](./Screenshot Folder)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## My process
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built with
 
-### `npm run eject`
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```html
+   <div className="totaler">
+      <p>Total</p>
+      <span>/ person</span>
+    </div>
+```
+```css
+  body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all .2s ease-in;
+  background-color: hsl(185, 41%, 84%);
+}
+```
+```js
+    const handleClick = () => {
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    const round = ((bill * (percent/100))/people).toFixed(1);
+    const round2 = (bill * (percent/100)).toFixed(2);
 
-## Learn More
+    setTip(round);
+    setTotal(round2);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    if (people === 0) {
+      for (const cam of cant) {
+        cam.classList.add('can');
+      }
+    peeps.classList.add('pe')
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    setTip('0.00');
+    setTotal('0.00');
 
-### Code Splitting
+    } else{
+      for (const cam of cant) {
+        cam.classList.remove('can');
+      }
+    peeps.classList.remove('pe');     
+    }
+  }
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Continued development
 
-### Analyzing the Bundle Size
+I'd love to continue working with react js framework
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Useful resources
 
-### Making a Progressive Web App
+Youtube is basically a university
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Author
+- Frontend Mentor - [@Wizzy-05](https://www.frontendmentor.io/profile/Wizzy-05)
+- Twitter - [@ahuzi_wisdom](https://twitter.com/home)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgments
+A very big thanks to harry
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
