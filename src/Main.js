@@ -1,56 +1,39 @@
 import { useState } from "react"
 
 const Main = () => {
-  const span_one = document.getElementsByClassName('span-one');
-  const span_two = document.getElementsByClassName('span-two');
-  const span_three = document.getElementsByClassName('span-three');
-  const span_four = document.getElementsByClassName('span-four');
-  const span_five = document.getElementsByClassName('span-five');
-  const cant = document.getElementsByClassName('cant');
+  const cant = document.getElementById('cant');
   const peeps = document.getElementById('peeps')
   const [bill, setBill] = useState(0);
   const [percent, setPercent] = useState();
   const [people, setPeople] = useState(0);
   const [tip, setTip] = useState('0.00');
   const [total, setTotal] = useState('0.00');
+  const tipPercent = document.querySelectorAll('.spanee');
 
-  const tipSelectOne = () => {
-    setPercent(5);
-    for (const one of span_one) {
-      one.classList.toggle('teps');
-    }
-  }
-
-  const tipSelectTwo = () => {
-    setPercent(10);
-    for (const two of span_two) {
-      two.classList.toggle('teps');
-    }
-  }
-
-  const tipSelectThree = () => {
-    setPercent(15);
-    for (const three of span_three) {
-      three.classList.toggle('teps');
-    }
-  }
-
-  const tipSelectFour = () => {
-    setPercent(25);
-    for (const four of span_four) {
-      four.classList.toggle('teps');
-    }
-  }
-
-  const tipSelectFive = () => {
-    setPercent(50);
-    for (const five of span_five) {
-      five.classList.toggle('teps');
-    }
-  }
+  tipPercent.forEach((eachTip, index) => {
+    eachTip.addEventListener('click', () => {
+      tipPercent.forEach((eachTip, i) => {
+        if (i == index) {
+          eachTip.classList.add('teps')
+          if (i == 0) {
+            setPercent(5)
+          } else if (i == 1) {
+            setPercent(10)
+          } else if (i == 2) {
+            setPercent(15)
+          } else if (i == 3) {
+            setPercent(25)
+          } else if (i == 4) {
+            setPercent(50)
+          }
+        } else if (i !== index) {
+          eachTip.classList.remove('teps')
+        }
+      })
+    })
+  })
 
   const handleClick = () => {
-
     const round = ((bill * (percent / 100)) / people).toFixed(2);
     const round2 = (bill * (percent / 100)).toFixed(2);
 
@@ -58,18 +41,14 @@ const Main = () => {
     setTotal(round2);
 
     if (people === 0) {
-      for (const cam of cant) {
-        cam.classList.add('can');
-      }
-      peeps.classList.add('pe')
+      cant.classList.add('can');
+      peeps.classList.add('pe');
 
       setTip('0.00');
       setTotal('0.00');
 
     } else {
-      for (const cam of cant) {
-        cam.classList.remove('can');
-      }
+      cant.classList.remove('can');
       peeps.classList.remove('pe');
     }
   }
@@ -92,11 +71,11 @@ const Main = () => {
             <p className="tip">Select Tip %</p>
 
             <div className="grid">
-              <span className="spans span-one" onClick={tipSelectOne}> 5 <span>%</span> </span>
-              <span className="spans span-two" onClick={tipSelectTwo}> 10 <span>%</span></span>
-              <span className="spans span-three" onClick={tipSelectThree}> 15 <span>%</span> </span>
-              <span className="spans span-four" onClick={tipSelectFour}> 25 <span>%</span> </span>
-              <span className="spans span-five" onClick={tipSelectFive}> 50 <span>%</span> </span>
+              <span className="spans spanee" > 5 <span>%</span> </span>
+              <span className="spans spanee" > 10 <span>%</span></span>
+              <span className="spans spanee"> 15 <span>%</span> </span>
+              <span className="spans spanee"> 25 <span>%</span> </span>
+              <span className="spans spanee"> 50 <span>%</span> </span>
               <span className="spans custom-span"> <input type="text" placeholder="Custom" onChange={e => setPercent(e.target.value)} /></span>
             </div>
           </div>
@@ -104,7 +83,7 @@ const Main = () => {
           <div className="inner-three">
             <div className="people">
               <p> Number of People </p>
-              <span className="cant">Can't be zero</span>
+              <span id="cant">Can't be zero</span>
             </div>
             <div className="input-two">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16"><path fill="#9EBBBD" d="M9.573 7.729c.406 0 .784.07 1.126.209.342.14.639.33.881.569.232.227.438.503.614.82a5.1 5.1 0 01.407.949c.097.312.178.654.242 1.016.062.359.105.699.126 1.011.02.307.031.624.031.945 0 .836-.259 1.512-.768 2.01-.504.492-1.17.742-1.98.742H2.748c-.81 0-1.477-.25-1.98-.742C.259 14.76 0 14.084 0 13.248c0-.322.01-.64.032-.945.02-.312.063-.652.126-1.01.063-.363.144-.705.242-1.017.1-.323.238-.643.407-.948.176-.318.382-.594.613-.821.243-.238.54-.43.882-.57.342-.138.72-.208 1.125-.208.16 0 .313.067.61.265.183.123.397.264.636.421.204.134.48.259.822.372.333.11.671.167 1.005.167a3.19 3.19 0 001.006-.167c.341-.113.618-.238.822-.372l.636-.42c.296-.2.45-.266.61-.266zM6.598 0C7.63 0 8.522.38 9.252 1.129s1.1 1.666 1.1 2.724c0 1.06-.37 1.976-1.1 2.725-.73.75-1.623 1.13-2.654 1.13-1.03 0-1.924-.38-2.653-1.13-.73-.749-1.1-1.666-1.1-2.725 0-1.058.37-1.975 1.1-2.724C4.675.379 5.567 0 6.598 0z" /></svg>

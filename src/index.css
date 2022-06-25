@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   gap: 7%;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 8%;
 }
 
 header {
@@ -217,7 +217,7 @@ input:focus {
   color: hsl(186, 14%, 43%);
 }
 
-.cant {
+#cant {
   font-size: 14px;
   font-weight: 900;
   color: rgba(203, 58, 58, 0.823);
@@ -321,7 +321,7 @@ input:focus {
 }
 
 .num>span {
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 900;
   color: hsl(172, 67%, 45%);
 }
@@ -363,7 +363,7 @@ input:focus {
 }
 
 .num-two>span {
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 900;
   color: hsl(172, 67%, 45%);
 }
